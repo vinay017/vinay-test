@@ -43,7 +43,7 @@
           <arguments>
             <argument>-d</argument>
             <argument>target/robot</argument>
-            <argument>src/main/test/Delete_LandPKS_Testing.txt</argument>
+            <argument>src/main/test</argument>
           </arguments>
         </configuration>
       </plugin>
