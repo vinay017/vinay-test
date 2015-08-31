@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150831 10:07:00.292" generator="Robot 2.8.7 (Python 2.7.10 on win32)">
+<suite source="C:\Users\vburlaga\Desktop\sample\src\main\test\Delete_LandPKS_Testing.txt" id="s1" name="Delete LandPKS Testing">
+<test id="s1-t1" name="Delete from LandInfo">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landinfo</arg>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.761" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.761" starttime="20150831 10:07:00.746"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.761" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.761" starttime="20150831 10:07:00.761"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landinfo</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.777" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.777" level="INFO">${result} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.777" starttime="20150831 10:07:00.761"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>"object": "LANDINFO"</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.792" level="FAIL">'{"error": "Authentication key is missing or invalid"}' does not contain '"object": "LANDINFO"'</msg>
+<status status="FAIL" endtime="20150831 10:07:00.792" starttime="20150831 10:07:00.777"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>puts</tag>
+</tags>
+<status status="FAIL" endtime="20150831 10:07:00.792" critical="yes" starttime="20150831 10:07:00.746">'{"error": "Authentication key is missing or invalid"}' does not contain '"object": "LANDINFO"'</status>
+</test>
+<test id="s1-t2" name="Delete from LandCover">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>${LandCoverURL}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.792" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.792" starttime="20150831 10:07:00.792"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.792" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.792" starttime="20150831 10:07:00.792"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.792" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.792" level="INFO">${result} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.792" starttime="20150831 10:07:00.792"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>"object": "LANDCOVER"</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.792" level="FAIL">'{"error": "Authentication key is missing or invalid"}' does not contain '"object": "LANDCOVER"'</msg>
+<status status="FAIL" endtime="20150831 10:07:00.792" starttime="20150831 10:07:00.792"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>Delete from LandCover</tag>
+</tags>
+<status status="FAIL" endtime="20150831 10:07:00.792" critical="yes" starttime="20150831 10:07:00.792">'{"error": "Authentication key is missing or invalid"}' does not contain '"object": "LANDCOVER"'</status>
+</test>
+<test id="s1-t3" name="Invalid or missing Action Field">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>${Missing Action}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.792" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.792" starttime="20150831 10:07:00.792"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.792" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.792" starttime="20150831 10:07:00.792"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.792" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.808" level="INFO">${result} = &lt;Response [400]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.792"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>{"error": "Invalid or missing action field"}</arg>
+</arguments>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>"name": "@{name}[0]"</arg>
+</arguments>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>"status": "deleted"</arg>
+</arguments>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>"recorder_name": "@{recorder_name}[0]"</arg>
+</arguments>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>Invalid or missing Action Field</tag>
+</tags>
+<status status="PASS" endtime="20150831 10:07:00.808" critical="yes" starttime="20150831 10:07:00.792"></status>
+</test>
+<test id="s1-t4" name="Invalid or Object missing">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>${Missing Object}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.808" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.808" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.808" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.808" level="INFO">${result} = &lt;Response [400]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>{"error": "Invalid or missing object field"}</arg>
+</arguments>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>"name": "@{name}[0]"</arg>
+</arguments>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>"status": "deleted"</arg>
+</arguments>
+<status status="PASS" endtime="20150831 10:07:00.808" starttime="20150831 10:07:00.808"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>"recorder_name": "@{recorder_name}[0]"</arg>
+</arguments>
+<status status="PASS" endtime="20150831 10:07:00.824" starttime="20150831 10:07:00.824"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>Invalid or Object missing</tag>
+</tags>
+<status status="PASS" endtime="20150831 10:07:00.824" critical="yes" starttime="20150831 10:07:00.808"></status>
+</test>
+<test id="s1-t5" name="Missing Recorder name field">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>${Missing Recorder name}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.824" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.824" starttime="20150831 10:07:00.824"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.824" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.824" starttime="20150831 10:07:00.824"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.824" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.824" level="INFO">${result} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.824" starttime="20150831 10:07:00.824"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.824" level="FAIL">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}'</msg>
+<status status="FAIL" endtime="20150831 10:07:00.824" starttime="20150831 10:07:00.824"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>Missing Recorder name field</tag>
+</tags>
+<status status="FAIL" endtime="20150831 10:07:00.824" critical="yes" starttime="20150831 10:07:00.824">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}'</status>
+</test>
+<test id="s1-t6" name="Missing name field">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>${Missing name field}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.824" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.824" starttime="20150831 10:07:00.824"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.824" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.824" starttime="20150831 10:07:00.824"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.824" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.839" level="INFO">${result} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.839" starttime="20150831 10:07:00.824"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.839" level="FAIL">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}'</msg>
+<status status="FAIL" endtime="20150831 10:07:00.839" starttime="20150831 10:07:00.839"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>Missing name field</tag>
+</tags>
+<status status="FAIL" endtime="20150831 10:07:00.839" critical="yes" starttime="20150831 10:07:00.824">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}'</status>
+</test>
+<test id="s1-t7" name="Missing name and Recorder name fields">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>${Missing name and recorder field}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.839" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.839" starttime="20150831 10:07:00.839"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.839" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.839" starttime="20150831 10:07:00.839"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.839" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.839" level="INFO">${result} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.839" starttime="20150831 10:07:00.839"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.839" level="FAIL">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}'</msg>
+<status status="FAIL" endtime="20150831 10:07:00.839" starttime="20150831 10:07:00.839"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>Missing name and Recorder name fields</tag>
+</tags>
+<status status="FAIL" endtime="20150831 10:07:00.839" critical="yes" starttime="20150831 10:07:00.839">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}'</status>
+</test>
+<test id="s1-t8" name="Missing ID in Landinfo">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>${Missing name and recorder field}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.839" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.839" starttime="20150831 10:07:00.839"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.839" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.839" starttime="20150831 10:07:00.839"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.855" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.855" level="INFO">${result} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.855" starttime="20150831 10:07:00.839"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.855" level="FAIL">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}'</msg>
+<status status="FAIL" endtime="20150831 10:07:00.855" starttime="20150831 10:07:00.855"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>Missing ID in Landinfo</tag>
+</tags>
+<status status="FAIL" endtime="20150831 10:07:00.855" critical="yes" starttime="20150831 10:07:00.839">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "Invalide or missing ID field or (Recorder_name and name) pair"}'</status>
+</test>
+<test id="s1-t9" name="Recorder name and name pair not exist in landcover">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>${Recorder name and name pair not exists}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.855" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.855" starttime="20150831 10:07:00.855"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.855" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.855" starttime="20150831 10:07:00.855"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.855" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.855" level="INFO">${result} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.855" starttime="20150831 10:07:00.855"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>{"error": "LandCover with (Recorder_name and name) pair has been deleted already or does not exist in System"}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.855" level="FAIL">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "LandCover with (Recorder_name and name) pair has been deleted already or does not exist in System"}'</msg>
+<status status="FAIL" endtime="20150831 10:07:00.871" starttime="20150831 10:07:00.855"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>Recorder name and name pair not exist in landcover</tag>
+</tags>
+<status status="FAIL" endtime="20150831 10:07:00.871" critical="yes" starttime="20150831 10:07:00.855">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "LandCover with (Recorder_name and name) pair has been deleted already or does not exist in System"}'</status>
+</test>
+<test id="s1-t10" name="Id is not in Landinfo">
+<kw type="kw" name="RequestsLibrary.Create Session">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>${Invalid ID}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.871" level="INFO">Argument types are:
+&lt;type 'bool'&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.871" starttime="20150831 10:07:00.871"></status>
+</kw>
+<kw type="kw" name="${headers} = Collections.Create Dictionary">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Cookie</arg>
+<arg>${authkey}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.871" level="INFO">${headers} = {u'Cookie': u'session_id=5833d51c55479224e31443bda6177349496d164f'}</msg>
+<status status="PASS" endtime="20150831 10:07:00.871" starttime="20150831 10:07:00.871"></status>
+</kw>
+<kw type="kw" name="${result} = RequestsLibrary.Delete Request">
+<doc>Send a DELETE request on the session object found using the</doc>
+<arguments>
+<arg>landcover</arg>
+<arg>/delete</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.871" level="INFO">Starting new HTTP connection (1): 128.123.177.21</msg>
+<msg timestamp="20150831 10:07:00.871" level="INFO">${result} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20150831 10:07:00.871" starttime="20150831 10:07:00.871"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${result.content}</arg>
+<arg>{"error": "ID 2738 is not existed or has been deleted"}</arg>
+</arguments>
+<msg timestamp="20150831 10:07:00.871" level="FAIL">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "ID 2738 is not existed or has been deleted"}'</msg>
+<status status="FAIL" endtime="20150831 10:07:00.871" starttime="20150831 10:07:00.871"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>Id is not in Landinfo</tag>
+</tags>
+<status status="FAIL" endtime="20150831 10:07:00.871" critical="yes" starttime="20150831 10:07:00.871">'{"error": "Authentication key is missing or invalid"}' does not contain '{"error": "ID 2738 is not existed or has been deleted"}'</status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20150831 10:07:00.871" starttime="20150831 10:07:00.292"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="8" pass="2">Critical Tests</stat>
+<stat fail="8" pass="2">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">Delete from LandCover</stat>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">Id is not in Landinfo</stat>
+<stat info="" links="" doc="" combined="" pass="1" fail="0">Invalid or missing Action Field</stat>
+<stat info="" links="" doc="" combined="" pass="1" fail="0">Invalid or Object missing</stat>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">Missing ID in Landinfo</stat>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">Missing name and Recorder name fields</stat>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">Missing name field</stat>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">Missing Recorder name field</stat>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">puts</stat>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">Recorder name and name pair not exist in landcover</stat>
+</tag>
+<suite>
+<stat fail="8" pass="2" id="s1" name="Delete LandPKS Testing">Delete LandPKS Testing</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
